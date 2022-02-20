@@ -13,10 +13,14 @@ namespace AddressBook
         {
             contacts.Add(new Contact()
             {
-                phoneNo = no,
                 firstName = firstName,
+                lastName = lastName,
                 email = email,
-                lastName = lastName
+                phoneNumber = phoneNumber,
+                address = address,
+                zip = zip,        
+                city = city,
+                state = state,
             });
             Console.WriteLine($"Contact of {firstName} has been added");
         }
