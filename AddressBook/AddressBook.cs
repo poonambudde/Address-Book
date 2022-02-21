@@ -9,7 +9,7 @@ namespace AddressBook
         List<Contact> contacts = new List<Contact>();
 
 
-        public void addContact(string firstName, string email, string lastName, string phoneNumber, string address, string city, string zip ,string state)
+        public void addContact(string firstName, string email, string lastName, string phoneNumber, string address, string city, string zip, string state)
         {
             contacts.Add(new Contact()
             {
@@ -18,7 +18,7 @@ namespace AddressBook
                 email = email,
                 phoneNumber = phoneNumber,
                 address = address,
-                zip = zip,        
+                zip = zip,
                 city = city,
                 state = state,
             });
@@ -53,9 +53,22 @@ namespace AddressBook
             editContact.city = Console.ReadLine();
             Console.WriteLine("Plz provide new state");
             editContact.state = Console.ReadLine();
-           
+
             contacts.Add(editContact);
             Console.WriteLine($"Contact of {name} has been edited");
+        }       
+         public void Remove(string name)
+         {
+            Contact RemoveContact = null;
+            foreach (var contact in contacts)
+            {
+                    if (contact.firstName.Contains(name))
+                    {
+                        RemoveContact = contact;
+                    }
+            }
+            contacts.Remove(RemoveContact);
+            Console.WriteLine($"Contact of {name} has been deleted");
         }
     }
 }

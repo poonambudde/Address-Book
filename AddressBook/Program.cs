@@ -39,8 +39,10 @@ namespace AddressBook
             Console.WriteLine("\nIf you want to edit contact plz enter name");
             string name = Console.ReadLine();
             addressBook.Edit(name);
-            
 
+            Console.WriteLine("\nIf you want to delete contact plz enter name");
+            string firstname = Console.ReadLine();
+            addressBook.Remove(firstname);
         }
     }
 }
