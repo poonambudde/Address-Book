@@ -8,7 +8,6 @@ namespace AddressBook
     {
         List<Contact> contacts = new List<Contact>();
 
-
         public void addContact(string firstName, string email, string lastName, string phoneNumber, string address, string city, string zip, string state)
         {
             contacts.Add(new Contact()
