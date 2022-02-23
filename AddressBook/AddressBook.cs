@@ -54,7 +54,8 @@ namespace AddressBook
 
             contacts.Add(editContact);
             Console.WriteLine($"Contact of {name} has been edited");
-        }       
+        }     
+        
          public void Remove(string name)
          {
             Contact RemoveContact = null;
