@@ -38,9 +38,6 @@ namespace AddressBook
             Console.WriteLine("\nIf you want to edit contact plz enter name");
             string name = Console.ReadLine();
             addressBook.Edit(name);
-            
-            addressBook.addContact(firstName, lastName, email, phoneNumber, address, zip, city, state );
         }
     }
 }
-
