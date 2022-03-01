@@ -27,7 +27,6 @@ namespace AddressBook
 
         public void Edit(string name)
         {
-            contacts.Find(x => x.firstName == name);
             Contact editContact = null;
             foreach (var contact in contacts)
             {
