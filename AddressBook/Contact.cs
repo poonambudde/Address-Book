@@ -6,6 +6,7 @@ namespace AddressBook
 {
     class Contact
     {
+
         public string firstName { get; set; }
 
         public string lastName { get; set; }
@@ -21,6 +22,5 @@ namespace AddressBook
         public string city { get; set; }
 
         public string state { get; set; }
-
     }
 }
