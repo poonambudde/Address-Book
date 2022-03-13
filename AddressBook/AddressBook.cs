@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    class AddressBook
+    class AddressBook : IContacts
     {
         List<Contact> contacts = new List<Contact>();
 
-
-        public void addContact(string firstName, string email, string lastName, string phoneNumber, string address, string city, string zip, string state)
+        public void addContact(string firstName, string lastName, string email, string phoneNumber, string address, string zip, string city, String state )
         {
             contacts.Add(new Contact()
             {
@@ -27,7 +28,6 @@ namespace AddressBook
 
         public void Edit(string name)
         {
-            contacts.Find(x => x.firstName == name);
             Contact editContact = null;
             foreach (var contact in contacts)
             {
@@ -56,16 +56,17 @@ namespace AddressBook
 
             contacts.Add(editContact);
             Console.WriteLine($"Contact of {name} has been edited");
-        }       
-         public void Remove(string name)
-         {
+        }
+
+        public void Remove(string name)
+        {
             Contact RemoveContact = null;
             foreach (var contact in contacts)
             {
-                    if (contact.firstName.Contains(name))
-                    {
-                        RemoveContact = contact;
-                    }
+                if (contact.firstName.Contains(name))
+                {
+                    RemoveContact = contact;
+                }
             }
             contacts.Remove(RemoveContact);
             Console.WriteLine($"Contact of {name} has been deleted");
