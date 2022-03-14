@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace AddressBook
@@ -128,6 +128,7 @@ namespace AddressBook
             }
             return areaDisc;
         }
+
         public static void displayPersonDisc(Dictionary<string, List<string>> areaDisc)
         {
             foreach (var index in areaDisc)
