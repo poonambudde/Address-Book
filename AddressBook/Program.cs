@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace AddressBook
@@ -10,8 +10,8 @@ namespace AddressBook
             Console.WriteLine("Welcome to Address Book program");
 
             Dictionary<string, AddressBook> adressBookDictionary = new Dictionary<string, AddressBook>();
-            
-          while (true)
+
+            while (true)
             {
                 try
                 {
@@ -105,28 +105,41 @@ namespace AddressBook
             }
         }
 
-        public static void findByCityOrState(Dictionary<string, AddressBook> adressBookDictionary)
+        public static Dictionary<string, List<string>> FindByCityOrState(Dictionary<string, AddressBook> adressBookDictionary, Dictionary<string, List<string>> areaDisc)
         {
             Console.WriteLine("Enter the city or state where you want to find that person = ");
             string findPlace = Console.ReadLine();
             foreach (var element in adressBookDictionary)
             {
                 List<string> listOfPersonsInPlace = element.Value.findPersons(findPlace);
-                if (listOfPersonsInPlace.Count == 0)
+                foreach (var name in listOfPersonsInPlace)
                 {
-                    Console.WriteLine("No person in that city/state of adress book  = " + element.Key);
-                }
-                else
-                {
-                    Console.WriteLine("The person in that city/state of adress book = " + element.Key + " = ");
-                    foreach (var names in listOfPersonsInPlace)
+                    if (!areaDisc.ContainsKey(findPlace))
                     {
-                        Console.WriteLine(names);
+                        List<string> personList = new List<string>();
+                        personList.Add(name);
+                        areaDisc.Add(findPlace, personList);
+                    }
+                    else
+                    {
+                        areaDisc[findPlace].Add(name);
                     }
                 }
             }
+            return areaDisc;
         }
-      
+
+        public static void displayPersonDisc(Dictionary<string, List<string>> areaDisc)
+        {
+            foreach (var index in areaDisc)
+            {
+                foreach (var personName in index.Value)
+                {
+                    Console.WriteLine("personName:-" + personName + "display area:-" + index.Key);
+                }
+            }
+        }
+
         public static void takeInputAndAddToContact(AddressBook adressBook)
         {
             Console.WriteLine("Enter firstName");
@@ -152,7 +165,6 @@ namespace AddressBook
 
             Console.WriteLine("Enter state");
             string state = Console.ReadLine();
-          
 
             if ((firstName != "") || (lastName != "") || (address != "") || (city != "") || (state != "") || (zip != "") || (email != "") || (phoneNumber != ""))
             {

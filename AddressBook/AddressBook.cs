@@ -36,6 +36,7 @@ namespace AddressBook
             else
                 return false;
         }
+        
         public void Edit(string firstName)
         {
             Contact editContact = null;
