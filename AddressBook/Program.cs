@@ -142,8 +142,8 @@ namespace AddressBook
             }
             Console.WriteLine("count:-" + count);
         }
-
-        public static void takeInputAndaddToContact(AddressBook adressBook)
+       
+        public static void takeInputAndAddToContact(AddressBook adressBook)
         {
             Console.WriteLine("Enter firstName");
             string firstName = Console.ReadLine();
