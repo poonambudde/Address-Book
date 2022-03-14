@@ -19,7 +19,7 @@ namespace AddressBook
                     for (int i = 1; i <= numOfAdressBook; i++)
                     {
                         Console.WriteLine("Enter the name of adress book = " + i + "=");
-                        String adressBookName = Console.ReadLine();
+                        string adressBookName = Console.ReadLine();
                         AddressBook adressBook = new AddressBook();
                         adressBookDictionary.Add(adressBookName, adressBook);
                     }
@@ -68,7 +68,7 @@ namespace AddressBook
                             if (adressBookDictionary.ContainsKey(editContactInAdressBook))
                             {
                                 Console.WriteLine("Enter first name to edit contact =");
-                                String firstNameForEditContact = Console.ReadLine();
+                                string firstNameForEditContact = Console.ReadLine();
                                 adressBookDictionary[editContactInAdressBook].Edit(firstNameForEditContact);
                                 adressBookDictionary[editContactInAdressBook].displayContact();
                             }
@@ -79,14 +79,14 @@ namespace AddressBook
                             if (adressBookDictionary.ContainsKey(deleteContactInAdressBook))
                             {
                                 Console.WriteLine("Enter first name to delete contact =");
-                                String firstNameForDeleteContact = Console.ReadLine();
+                                string firstNameForDeleteContact = Console.ReadLine();
                                 adressBookDictionary[deleteContactInAdressBook].delete(firstNameForDeleteContact);
                                 adressBookDictionary[deleteContactInAdressBook].displayContact();
                             }
                             break;
                         case 4:
                             Console.WriteLine("Enter the Adress book name to display contact = ");
-                            String displayContactInAdressBook = Console.ReadLine();
+                            string displayContactInAdressBook = Console.ReadLine();
                             adressBookDictionary[displayContactInAdressBook].displayContact();
                             break;
                         case 5:
@@ -128,8 +128,15 @@ namespace AddressBook
 
             Console.WriteLine("Enter state");
             string state = Console.ReadLine();
-
-            adressBook.addContact(firstName, lastName, email, phoneNumber, address, zip, city, state);
+            if ((firstName != "") || (lastName != "") || (address != "") || (city != "") || (state != "") || (zip != "") || (email != "") || (phoneNumber != ""))
+            {
+                adressBook.addContact(firstName, lastName, email, phoneNumber, address, zip, city, state);
+            }
+            else
+            {
+                Console.WriteLine("Empty string not allowed \n for add contacts please give the input in string");
+            }
+            
         }
     }
 }
