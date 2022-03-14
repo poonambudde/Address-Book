@@ -42,8 +42,6 @@ namespace AddressBook
 
             foreach (Contact contact in contactList)
             {
-
-
                 if (firstName.Equals(contact.firstName))
                 {
                     editContact = null;

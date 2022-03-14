@@ -10,8 +10,8 @@ namespace AddressBook
             Console.WriteLine("Welcome to Address Book program");
 
             Dictionary<string, AddressBook> adressBookDictionary = new Dictionary<string, AddressBook>();
-
-            while (true)
+            
+          while (true)
             {
                 try
                 {
@@ -126,7 +126,7 @@ namespace AddressBook
                 }
             }
         }
-
+      
         public static void takeInputAndAddToContact(AddressBook adressBook)
         {
             Console.WriteLine("Enter firstName");
@@ -152,6 +152,7 @@ namespace AddressBook
 
             Console.WriteLine("Enter state");
             string state = Console.ReadLine();
+          
 
             if ((firstName != "") || (lastName != "") || (address != "") || (city != "") || (state != "") || (zip != "") || (email != "") || (phoneNumber != ""))
             {
