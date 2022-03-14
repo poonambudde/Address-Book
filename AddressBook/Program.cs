@@ -10,7 +10,8 @@ namespace AddressBook
             Console.WriteLine("Welcome to Address Book program");
 
             Dictionary<string, AddressBook> adressBookDictionary = new Dictionary<string, AddressBook>();
-            while (true)
+            
+          while (true)
             {
                 try
                 {
@@ -103,6 +104,29 @@ namespace AddressBook
                 }
             }
         }
+
+        public static void findByCityOrState(Dictionary<string, AddressBook> adressBookDictionary)
+        {
+            Console.WriteLine("Enter the city or state where you want to find that person = ");
+            string findPlace = Console.ReadLine();
+            foreach (var element in adressBookDictionary)
+            {
+                List<string> listOfPersonsInPlace = element.Value.findPersons(findPlace);
+                if (listOfPersonsInPlace.Count == 0)
+                {
+                    Console.WriteLine("No person in that city/state of adress book  = " + element.Key);
+                }
+                else
+                {
+                    Console.WriteLine("The person in that city/state of adress book = " + element.Key + " = ");
+                    foreach (var names in listOfPersonsInPlace)
+                    {
+                        Console.WriteLine(names);
+                    }
+                }
+            }
+        }
+      
         public static void takeInputAndAddToContact(AddressBook adressBook)
         {
             Console.WriteLine("Enter firstName");
@@ -128,6 +152,8 @@ namespace AddressBook
 
             Console.WriteLine("Enter state");
             string state = Console.ReadLine();
+          
+
             if ((firstName != "") || (lastName != "") || (address != "") || (city != "") || (state != "") || (zip != "") || (email != "") || (phoneNumber != ""))
             {
                 adressBook.addContact(firstName, lastName, email, phoneNumber, address, zip, city, state);
@@ -136,7 +162,6 @@ namespace AddressBook
             {
                 Console.WriteLine("Empty string not allowed \n for add contacts please give the input in string");
             }
-            
         }
     }
 }
