@@ -15,6 +15,7 @@ namespace AddressBook
             this.contactList = new List<Contact>();
         }
 
+        // Adds the contact but contact is not be duplicated.
         public void addContact(string firstName, string lastName, string email, string phoneNumber, string address, string zip, string city, string state)
         {
             bool duplicate = equals(firstName);
@@ -29,6 +30,8 @@ namespace AddressBook
             }
         }
 
+
+        // Equalses the specified first name for duplicate name.
         private bool equals(string name)
         {
             if (this.contactList.Any(e => e.firstName == name))
@@ -36,6 +39,8 @@ namespace AddressBook
             else
                 return false;
         }
+
+        // Edits the contact with the help of first name of person.
         public void Edit(string firstName)
         {
             Contact editContact = null;
@@ -70,6 +75,7 @@ namespace AddressBook
             Console.WriteLine($"Contact of {firstName} has been edited");
         }
 
+        // Deletes the contact of person with the help of first name.
         public void delete(string name)
         {
             Contact RemoveContact = null;
@@ -84,6 +90,7 @@ namespace AddressBook
             Console.WriteLine($"Contact of {name} has been deleted");
         }
 
+        // Displays the contact of persons.
         public void displayContact()
         {
             foreach (Contact contact in contactList)
@@ -99,7 +106,8 @@ namespace AddressBook
             }
         }
 
-        public List<string> findPersons(string place)
+        // Find  the persons by place ie state or city.
+        public List<string> FindPersons(string place)
         {
             List<string> personFounded = new List<string>();
             foreach (Contact contacts in contactList.FindAll(e => (e.city.Equals(place))).ToList())
@@ -116,6 +124,22 @@ namespace AddressBook
                 }
             }
             return personFounded;
+        }
+
+        // Sort methode for sort entites in adress book.
+        public void Sort()
+        {
+            List<string> sortList = new List<string>();
+            foreach (Contact contacts in contactList)
+            {
+                string sort = contacts.ToString();
+                sortList.Add(sort);
+            }
+            sortList.Sort();
+            foreach (string sort in sortList)
+            {
+                Console.WriteLine(sort);
+            }
         }
     }
 }
