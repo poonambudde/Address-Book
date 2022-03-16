@@ -39,7 +39,6 @@ namespace AddressBook
             else
                 return false;
         }
-
         // Edits the contact with the help of first name of person.
         public void Edit(string firstName)
         {
@@ -47,8 +46,6 @@ namespace AddressBook
 
             foreach (Contact contact in contactList)
             {
-
-
                 if (firstName.Equals(contact.firstName))
                 {
                     editContact = contact;
@@ -126,8 +123,8 @@ namespace AddressBook
             return personFounded;
         }
 
-        // Sort methode for sort entites in adress book.
-        public void Sort()
+        // Sort methode for sort entites in adress book.      
+        public void SortByFirstName()
         {
             List<string> sortList = new List<string>();
             foreach (Contact contacts in contactList)
@@ -139,6 +136,39 @@ namespace AddressBook
             foreach (string sort in sortList)
             {
                 Console.WriteLine(sort);
+            }
+        }
+
+        // Sort methode for sort entites in adress book by city.
+        public void SortByCity()
+        {
+            contactList.Sort(new Comparison<Contact>((a, b) => string.Compare(a.city, b.city)));
+            Console.WriteLine("Contacts after sorting By City = ");
+            foreach (Contact contact in contactList)
+            {
+                Console.WriteLine("\n FirstName = " + contact.firstName + "\n Last Name = " + contact.lastName + "\n Address = " + contact.address + "\n City = " + contact.city + "\n State = " + contact.state + "\n Zip = " + contact.zip + "\n Phone Number = " + contact.phoneNumber + "\n Email = " + contact.email);
+            }
+        }
+
+        // Sort methode for sort entites in adress book by state.
+        public void SortByState()
+        {
+            contactList.Sort(new Comparison<Contact>((a, b) => string.Compare(a.state, b.state)));
+            Console.WriteLine("Contacts after sorting By State = ");
+            foreach (Contact contact in contactList)
+            {
+                Console.WriteLine("\n FirstName = " + contact.firstName + "\n Last Name = " + contact.lastName + "\n Address = " + contact.address + "\n City = " + contact.city + "\n State = " + contact.state + "\n Zip = " + contact.zip + "\n Phone Number = " + contact.phoneNumber + "\n Email = " + contact.email);
+            }
+        }
+
+        // Sort methode for sort entites in adress book by zip.
+        public void SortByZip()
+        {
+            contactList.Sort(new Comparison<Contact>((a, b) => string.Compare(a.zip, b.zip)));
+            Console.WriteLine("Contacts after sorting By Zip = ");
+            foreach (Contact contact in contactList)
+            {
+                Console.WriteLine("\n FirstName = " + contact.firstName + "\n Last Name = " + contact.lastName + "\n Address = " + contact.address + "\n City = " + contact.city + "\n State = " + contact.state + "\n Zip = " + contact.zip + "\n Phone Number = " + contact.phoneNumber + "\n Email = " + contact.email);
             }
         }
     }
