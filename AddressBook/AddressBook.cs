@@ -45,7 +45,7 @@ namespace AddressBook
             {
                 if (firstName.Equals(contact.firstName))
                 {
-                    editContact = null;
+                    editContact = contact;
                 }
             }
             Console.WriteLine("Plz provide new firstName");
