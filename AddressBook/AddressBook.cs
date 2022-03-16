@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,9 +42,11 @@ namespace AddressBook
 
             foreach (Contact contact in contactList)
             {
+
+
                 if (firstName.Equals(contact.firstName))
                 {
-                    editContact = null;
+                    editContact =contact;
                 }
             }
             Console.WriteLine("Plz provide new firstName");
@@ -97,7 +99,7 @@ namespace AddressBook
             }
         }
 
-        public List<string> findPersons(string place)
+        public List<string> SearchPersons(string place)
         {
             List<string> personFounded = new List<string>();
             foreach (Contact contacts in contactList.FindAll(e => (e.city.Equals(place))).ToList())
