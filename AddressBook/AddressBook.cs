@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ namespace AddressBook
 
         public AddressBook()
         {
-            this.contactList = new List<Contact>();
+            this.contactList = new List<Contact>();  
         }
 
         // Adds the contact but contact is not be duplicated.
@@ -39,6 +39,7 @@ namespace AddressBook
             else
                 return false;
         }
+
         // Edits the contact with the help of first name of person.
         public void Edit(string firstName)
         {
@@ -46,6 +47,8 @@ namespace AddressBook
 
             foreach (Contact contact in contactList)
             {
+
+
                 if (firstName.Equals(contact.firstName))
                 {
                     editContact = contact;
@@ -116,8 +119,8 @@ namespace AddressBook
             {
                 foreach (Contact contacts in contactList.FindAll(e => (e.state.Equals(place))).ToList())
                 {
-                    string name = contacts.firstName + " " + contacts.lastName;
-                    personFounded.Add(name);
+                    string name = contacts.firstName + " " + contacts.lastName;     
+                    personFounded.Add(name);    
                 }
             }
             return personFounded;
