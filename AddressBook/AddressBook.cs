@@ -30,7 +30,6 @@ namespace AddressBook
             }
         }
 
-
         // Equalses the specified first name for duplicate name.
         private bool equals(string name)
         {
@@ -47,8 +46,6 @@ namespace AddressBook
 
             foreach (Contact contact in contactList)
             {
-
-
                 if (firstName.Equals(contact.firstName))
                 {
                     editContact = contact;
@@ -178,13 +175,25 @@ namespace AddressBook
         // Writes the in text file.
         public void writeInTxtFile()
         {
-            FileReadWrite.WriteFile(contactList);
+            FileReadWrite.writeInTxtFile(contactList);
         }
 
         // Reads from text file.
         public void readFromTxtFile()
         {
-            FileReadWrite.readFile();
+            FileReadWrite.readFromTxtFile();
+        }
+
+        // Writes the in text file.
+        public void writeInCSVFile()
+        {
+            FileReadWrite.writeintoCsvFile(contactList);
+        }
+
+        // Reads from text file.
+        public void readFromCSVFile()
+        {
+            FileReadWrite.readFromCSVFile();
         }
     }
 }
