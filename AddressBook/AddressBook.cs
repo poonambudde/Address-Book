@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,16 +36,17 @@ namespace AddressBook
             else
                 return false;
         }
-        
         public void Edit(string firstName)
         {
             Contact editContact = null;
 
             foreach (Contact contact in contactList)
             {
+
+
                 if (firstName.Equals(contact.firstName))
                 {
-                    editContact = null;
+                    editContact = contact;
                 }
             }
             Console.WriteLine("Plz provide new firstName");
