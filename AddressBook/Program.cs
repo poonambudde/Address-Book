@@ -5,11 +5,14 @@ namespace AddressBook
 {
     class Program
     {
+        // for add,edit,delete,display contacts of person in both the adress book with the help of dictionary.
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book program");
 
             Dictionary<string, AddressBook> adressBookDictionary = new Dictionary<string, AddressBook>();
+            Dictionary<string, List<string>> cityDisc = new Dictionary<string, List<string>>();
+            Dictionary<string, List<string>> StateDisc = new Dictionary<string, List<string>>();
 
             while (true)
             {
@@ -41,7 +44,7 @@ namespace AddressBook
                     {
                         Console.WriteLine(k);
                     }
-                    Console.WriteLine("\n 1 for Add Contact \n 2 for Edit Existing Contact \n 3 for delete the person,\n 4 for display,\n 5 for exit");
+                    Console.WriteLine("\n 1 for Add Contact \n 2 for Edit Existing Contact \n 3 for delete the person,\n 4 for display,\n 5 for Enter city or state ,\n 6 for exit");
                     int choise = Convert.ToInt32(Console.ReadLine());
                     switch (choise)
                     {
@@ -91,6 +94,20 @@ namespace AddressBook
                             adressBookDictionary[displayContactInAdressBook].displayContact();
                             break;
                         case 5:
+                            Console.WriteLine("Enter 1 for city 2 for state ");
+                            string area = Console.ReadLine();
+                            if (area.Contains("1"))
+                            {
+                                cityDisc = FindByCityOrState(adressBookDictionary, cityDisc);
+                                displayPersonDisc(cityDisc);
+                            }
+                            else
+                            {
+                                StateDisc = FindByCityOrState(adressBookDictionary, StateDisc);
+                                displayPersonDisc(StateDisc);
+                            }
+                            break;
+                        case 6:
                             Environment.Exit(0);
                             break;
                         default:
