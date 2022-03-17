@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace AddressBook
@@ -10,6 +10,8 @@ namespace AddressBook
             Console.WriteLine("Welcome to Address Book program");
 
             Dictionary<string, AddressBook> adressBookDictionary = new Dictionary<string, AddressBook>();
+            Dictionary<string, List<string>> cityDisc = new Dictionary<string, List<string>>();
+            Dictionary<string, List<string>> StateDisc = new Dictionary<string, List<string>>();
 
             while (true)
             {
@@ -41,7 +43,7 @@ namespace AddressBook
                     {
                         Console.WriteLine(k);
                     }
-                    Console.WriteLine("\n 1 for Add Contact \n 2 for Edit Existing Contact \n 3 for delete the person,\n 4 for display,\n 5 for exit");
+                    Console.WriteLine("\n 1 for Add Contact \n 2 for Edit Existing Contact \n 3 for delete the person,\n 4 for display,\n 5 for Enter city or state ,\n 6 for exit");
                     int choise = Convert.ToInt32(Console.ReadLine());
                     switch (choise)
                     {
@@ -91,6 +93,20 @@ namespace AddressBook
                             adressBookDictionary[displayContactInAdressBook].displayContact();
                             break;
                         case 5:
+                            Console.WriteLine("Enter 1 for city 2 for state ");
+                            String area = Console.ReadLine();
+                            if (area.Contains("1"))
+                            {
+                                cityDisc = FindByCityOrState(adressBookDictionary);
+                                displayPersonDisc(cityDisc);
+                            }
+                            else
+                            {
+                                StateDisc = FindByCityOrState(adressBookDictionary);
+                                displayPersonDisc(StateDisc);
+                            }
+                            break;
+                        case 6:
                             Environment.Exit(0);
                             break;
                         default:
@@ -105,8 +121,9 @@ namespace AddressBook
             }
         }
 
-        public static Dictionary<string, List<string>> FindByCityOrState(Dictionary<string, AddressBook> adressBookDictionary, Dictionary<string, List<string>> areaDisc)
+        public static Dictionary<string, List<string>> FindByCityOrState(Dictionary<string, AddressBook> adressBookDictionary)
         {
+            Dictionary<string, List<string>> areaDisc = new Dictionary<string, List<string>>();
             Console.WriteLine("Enter the city or state where you want to find that person = ");
             string findPlace = Console.ReadLine();
             foreach (var element in adressBookDictionary)
@@ -142,8 +159,8 @@ namespace AddressBook
             }
             Console.WriteLine("count:-" + count);
         }
-       
-        public static void takeInputAndAddToContact(AddressBook adressBook)
+
+        public static void takeInputAndaddToContact(AddressBook adressBook)
         {
             Console.WriteLine("Enter firstName");
             string firstName = Console.ReadLine();
