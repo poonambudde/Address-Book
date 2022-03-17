@@ -30,7 +30,6 @@ namespace AddressBook
             }
         }
 
-
         // Equalses the specified first name for duplicate name.
         private bool equals(string name)
         {
@@ -39,6 +38,7 @@ namespace AddressBook
             else
                 return false;
         }
+        
         // Edits the contact with the help of first name of person.
         public void Edit(string firstName)
         {
@@ -170,6 +170,18 @@ namespace AddressBook
             {
                 Console.WriteLine("\n FirstName = " + contact.firstName + "\n Last Name = " + contact.lastName + "\n Address = " + contact.address + "\n City = " + contact.city + "\n State = " + contact.state + "\n Zip = " + contact.zip + "\n Phone Number = " + contact.phoneNumber + "\n Email = " + contact.email);
             }
+        }
+
+        // Writes the in text file.
+        public void writeInTxtFile()
+        {
+            FileReadWrite.WriteFile(contactList);
+        }
+
+        // Reads from text file.
+        public void readFromTxtFile()
+        {
+            FileReadWrite.readFile();
         }
     }
 }

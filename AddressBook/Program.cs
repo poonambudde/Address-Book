@@ -44,7 +44,7 @@ namespace AddressBook
                     {
                         Console.WriteLine(k);
                     }
-                    Console.WriteLine("\n 1 for Add Contact \n 2 for Edit Existing Contact \n 3 for delete the person,\n 4 for display,\n 5 for Enter city or state ,\n 6 for Sort by first name,\n 7 for Sort by city,\n 8 for Sort by state, \n 9 for Sort by zip,\n 10 for Exit");
+                    Console.WriteLine("\n 1 for Add Contact \n 2 for Edit Existing Contact \n 3 for delete the person,\n 4 for display,\n 5 for Enter city or state ,\n 6 for Sort by first name,\n 7 for Sort by city,\n 8 for Sort by state, \n 9 for Sort by zip,\n 10 for write in Txt File,\n 11 for Read From Txt File, \n 12 for exit");
                     int choise = Convert.ToInt32(Console.ReadLine());
                     switch (choise)
                     {
@@ -128,6 +128,17 @@ namespace AddressBook
                             adressBookDictionary[sortByZipInAdressBook].SortByZip();
                             break;
                         case 10:
+
+                            Console.WriteLine("Enter Adress Book Name To Store/write Contacts = ");
+                            string writeInAddressBook = Console.ReadLine();
+                            adressBookDictionary[writeInAddressBook].writeInTxtFile();
+                            break;
+                        case 11:
+                            Console.WriteLine("Enter Adress Book Name To Store/write Contacts = ");
+                            string ReadAddressBook = Console.ReadLine();
+                            adressBookDictionary[ReadAddressBook].readFromTxtFile();
+                            break;
+                        case 12:
                             Environment.Exit(0);
                             break;
                         default:
@@ -141,29 +152,31 @@ namespace AddressBook
                 }
             }
         }
-
-        public static void FindByCityOrState(Dictionary<string, AddressBook> adressBookDictionary)
+      
+        public static Dictionary<string, List<string>> FindByCityOrState(Dictionary<string, AddressBook> adressBookDictionary)
         {
+            Dictionary<string, List<string>> areaDisc = new Dictionary<string, List<string>>();
             Console.WriteLine("Enter the city or state where you want to find that person = ");
             string findPlace = Console.ReadLine();
             foreach (var element in adressBookDictionary)
             {
                 List<string> listOfPersonsInPlace = element.Value.FindPersons(findPlace);
-                if (listOfPersonsInPlace.Count == 0)
+                foreach (var name in listOfPersonsInPlace)
                 {
-                    Console.WriteLine("No person in that city/state of adress book  = " + element.Key);
-                }
-                else
-                {
-                    Console.WriteLine("The person in that city/state of adress book = " + element.Key + " = ");
-                    foreach (var names in listOfPersonsInPlace)
+                    if (!areaDisc.ContainsKey(findPlace))
                     {
-                        Console.WriteLine(names);
+                        List<string> personList = new List<string>();
+                        personList.Add(name);
+                        areaDisc.Add(findPlace, personList);
+                    }
+                    else
+                    {
+                        areaDisc[findPlace].Add(name);
                     }
                 }
             }
-        }
-
+            return areaDisc;
+         
         // displayPersonDisc for displaying person with area and count the contact.
         public static void DisplayPersonDisc(Dictionary<string, List<string>> areaDisc)
         {
