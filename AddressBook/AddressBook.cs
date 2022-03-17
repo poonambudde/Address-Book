@@ -30,7 +30,6 @@ namespace AddressBook
             }
         }
 
-
         // Equalses the specified first name for duplicate name.
         private bool equals(string name)
         {
@@ -47,8 +46,6 @@ namespace AddressBook
 
             foreach (Contact contact in contactList)
             {
-
-
                 if (firstName.Equals(contact.firstName))
                 {
                     editContact = contact;
