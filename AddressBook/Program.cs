@@ -128,6 +128,7 @@ namespace AddressBook
                             adressBookDictionary[sortByZipInAdressBook].SortByZip();
                             break;
                         case 10:
+
                             Console.WriteLine("Enter Adress Book Name To Store/write Contacts = ");
                             string writeInAddressBook = Console.ReadLine();
                             adressBookDictionary[writeInAddressBook].writeInTxtFile();
@@ -151,7 +152,7 @@ namespace AddressBook
                 }
             }
         }
-
+      
         public static Dictionary<string, List<string>> FindByCityOrState(Dictionary<string, AddressBook> adressBookDictionary)
         {
             Dictionary<string, List<string>> areaDisc = new Dictionary<string, List<string>>();
@@ -175,8 +176,7 @@ namespace AddressBook
                 }
             }
             return areaDisc;
-        }
-
+         
         // displayPersonDisc for displaying person with area and count the contact.
         public static void DisplayPersonDisc(Dictionary<string, List<string>> areaDisc)
         {
