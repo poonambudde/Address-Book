@@ -175,13 +175,25 @@ namespace AddressBook
         // Writes the in text file.
         public void writeInTxtFile()
         {
-            FileReadWrite.WriteFile(contactList);
+            FileReadWrite.writeInTxtFile(contactList);
         }
 
         // Reads from text file.
         public void readFromTxtFile()
         {
-            FileReadWrite.readFile();
+            FileReadWrite.readFromTxtFile();
+        }
+
+        // Writes the in csv file.
+        public void writeInCSVFile()
+        {
+            FileReadWrite.writeintoCsvFile(contactList);
+        }
+
+        // Reads from csv file.
+        public void readFromCSVFile()
+        {
+            FileReadWrite.readFromCSVFile();
         }
     }
 }
