@@ -38,7 +38,7 @@ namespace AddressBook
             else
                 return false;
         }
-
+        
         // Edits the contact with the help of first name of person.
         public void Edit(string firstName)
         {
@@ -184,13 +184,13 @@ namespace AddressBook
             FileReadWrite.readFromTxtFile();
         }
 
-        // Writes in text file.
+        // Writes the in csv file.
         public void writeInCSVFile()
         {
             FileReadWrite.writeintoCsvFile(contactList);
         }
 
-        // Reads from text file.
+        // Reads from csv file.
         public void readFromCSVFile()
         {
             FileReadWrite.readFromCSVFile();
