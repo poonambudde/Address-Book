@@ -7,7 +7,7 @@ namespace AddressBook
 {
     public class FileReadWrite
     {
-        public static string textFilePath = @"C:\Users\DELL\source\repos\AddressBook\AddressBook\Contact.txt";
+        public static string textFilePath = @"C:\Users\DELL\source\repos\AddressBook\AddressBook\Utility\Contact.txt";
         public static string csvFilePath = @"C:\Users\DELL\source\repos\AddressBook\AddressBook\Utility\Contact.csv";
 
         // Write into txt file.

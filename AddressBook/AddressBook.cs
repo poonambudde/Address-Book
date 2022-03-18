@@ -184,13 +184,13 @@ namespace AddressBook
             FileReadWrite.readFromTxtFile();
         }
 
-        // Writes the in text file.
+        // Writes the in csv file.
         public void writeInCSVFile()
         {
             FileReadWrite.writeintoCsvFile(contactList);
         }
 
-        // Reads from text file.
+        // Reads from csv file.
         public void readFromCSVFile()
         {
             FileReadWrite.readFromCSVFile();
