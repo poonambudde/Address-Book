@@ -38,7 +38,7 @@ namespace AddressBook
             else
                 return false;
         }
-
+        
         // Edits the contact with the help of first name of person.
         public void Edit(string firstName)
         {
