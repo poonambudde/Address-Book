@@ -172,7 +172,7 @@ namespace AddressBook
             }
         }
 
-        // Writes the in text file.
+        // Writes in text file.
         public void writeInTxtFile()
         {
             FileReadWrite.writeInTxtFile(contactList);
@@ -194,6 +194,18 @@ namespace AddressBook
         public void readFromCSVFile()
         {
             FileReadWrite.readFromCSVFile();
+        }
+
+        // Writes in JSON file.
+        public void writeInJSONFile()
+        {
+            FileReadWrite.writeIntoJSONFile(contactList);
+        }
+
+        // Reads from JSON file.
+        public void readFromJSONFile()
+        {
+            FileReadWrite.readFromJSONFile();
         }
     }
 }
